@@ -4,7 +4,7 @@
 
 Texture2D shipTexture;
 
-UserShip::UserShip(int velocity, Vector2 position)
+UserShip::UserShip(float velocity, Vector2 position)
 {
     this->velocity = velocity;
     this->position = position;
