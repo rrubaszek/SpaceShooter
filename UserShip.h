@@ -6,11 +6,8 @@
 class UserShip : public AbstractObject
 {
 public:
-	UserShip(int velocity, Vector2 position, Texture2D shipTexture);
+	UserShip(int velocity, Vector2 position);
 	void shoot(int& shootItr, std::vector<LaserBullet>& allShots, Vector2 shipPosition);
 	void drawShip();
-
-private:
-	Texture2D shipTexture;
 };
 

@@ -2,11 +2,12 @@
 #include "Global.h"
 #include <iostream>
 
-UserShip::UserShip(int velocity, Vector2 position, Texture2D shipTexture)
+Texture2D shipTexture;
+
+UserShip::UserShip(int velocity, Vector2 position)
 {
     this->velocity = velocity;
     this->position = position;
-    this->shipTexture = shipTexture;
 }
 
 void UserShip::drawShip()
@@ -29,7 +30,6 @@ void UserShip::drawShip()
     }
 
     DrawTextureV(shipTexture, position, WHITE);
-    //DrawCircleV(ship_position, 20.0f, MAROON);
 
     DrawFPS(10, 10);
 }
@@ -38,13 +38,15 @@ void UserShip::shoot(int& shootItr, std::vector<LaserBullet>& allShots, Vector2 
 {
     if (IsKeyPressed(KEY_SPACE) && shootItr < 4)
     {
-        LaserBullet user_shoot(shipPosition);
+        LaserBullet *laser = new LaserBullet(shipPosition);
 
-        allShots.push_back(user_shoot);
+        allShots.push_back(*laser);
 
         shootItr++;
 
         std::cout << shootItr << "\n";
+
+        delete(laser);
     }
 }
 
