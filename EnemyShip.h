@@ -1,7 +1,6 @@
 #pragma once
 #include "AbstractObject.h"
-class EnemyShip :
-    public AbstractObject
+class EnemyShip : public AbstractObject
 {
 };
 

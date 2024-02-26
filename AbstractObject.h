@@ -3,7 +3,7 @@
 
 class AbstractObject
 {
-private:
+protected:
 	Vector2 position;
 	Vector2 size;
 	int velocity;
@@ -11,8 +11,5 @@ private:
 public:
 	Vector2 getPosition();
 	void setPosition(Vector2 position);
-	void move();
-	void draw();
-
 };
 

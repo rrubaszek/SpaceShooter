@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractObject.h" />
     <ClInclude Include="EnemyShip.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="LaserBullet.h" />
     <ClInclude Include="UserShip.h" />
   </ItemGroup>
