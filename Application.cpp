@@ -7,6 +7,7 @@
 /* Screen dimensions */
 int height = 583;
 int width = 1400;
+Vector2 screen = { width, height };
 
 /* Ship's starting position */
 Vector2 position = { GetScreenWidth() / 10.0f, GetScreenHeight() / 2.0f };
@@ -18,7 +19,10 @@ float velocity = 10.0f;
 int shootItr = 0;
 
 /* List with all LaserBullets */
-std::vector<LaserBullet> allShots;
+static std::vector<LaserBullet> allShots;
+
+/* List with all EnemyShips */
+static std::vector<EnemyShip> allEnemies;
 
 /* Main class of the space shooter game app */
 int main()
@@ -27,13 +31,24 @@ int main()
 
 	SetTargetFPS(60);
 
-	Image image = LoadImage("C:/SpaceShooterProject/Graphics/player2.png");
+	Image image = LoadImage("C:/SpaceShooterProject/SpaceShooter/Graphics/player2.png");
 	shipTexture = LoadTextureFromImage(image);
 	UnloadImage(image);
 
-	Image image_shoot = LoadImage("C:/SpaceShooterProject/Graphics/shoot1.png");
+	Image image_shoot = LoadImage("C:/SpaceShooterProject/SpaceShooter/Graphics/shoot1.png");
 	laserTexture = LoadTextureFromImage(image_shoot);
 	UnloadImage(image_shoot);
+
+	for (int i = 0; i < 4; i++)
+	{
+		EnemyShip enemy;
+
+		enemy.setPosition(screen);
+
+		enemy.setDrawable(true);
+
+		allEnemies.push_back(enemy);
+	}
 
 	UserShip *ship = new UserShip(velocity, position);
 
@@ -47,6 +62,7 @@ int main()
 		ClearBackground(GetColor(0x052c46ff));
 
 		/* Code */
+		drawing->drawAllEnemies(allEnemies, screen);
 
 		ship->drawObject();
 
