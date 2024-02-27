@@ -10,7 +10,7 @@ UserShip::UserShip(float velocity, Vector2 position)
     this->position = position;
 }
 
-void UserShip::drawShip()
+void UserShip::drawObject()
 {
     if (IsKeyDown(KEY_S) && position.y < 583 - shipTexture.height)
     {
@@ -50,3 +50,12 @@ void UserShip::shoot(int& shootItr, std::vector<LaserBullet>& allShots, Vector2 
     }
 }
 
+Vector2 UserShip::getPosition()
+{
+    return position;
+}
+
+void UserShip::setPosition(Vector2 position)
+{
+    this->position = position;
+}

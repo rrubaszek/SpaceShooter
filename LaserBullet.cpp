@@ -11,7 +11,7 @@ LaserBullet::LaserBullet(Vector2 shipPosition)
 	velocity = 16.0f;
 }
 
-void LaserBullet::drawBullet()
+void LaserBullet::drawObject()
 {
 	position.x += velocity;
 
@@ -33,4 +33,9 @@ void LaserBullet::drawEnemyBullet()
 Vector2 LaserBullet::getPosition()
 {
 	return position;
+}
+
+void LaserBullet::setPosition(Vector2 position)
+{
+	this->position = position;
 }

@@ -133,7 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractObject.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="DrawingUtils.cpp" />
     <ClCompile Include="EnemyShip.cpp" />

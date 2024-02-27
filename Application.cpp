@@ -12,7 +12,7 @@ int width = 1400;
 Vector2 position = { GetScreenWidth() / 10.0f, GetScreenHeight() / 2.0f };
 
 /* Ship's velocity */
-int velocity = 10.0f;
+float velocity = 10.0f;
 
 /* LaserBullet iterator */
 int shootItr = 0;
@@ -48,7 +48,7 @@ int main()
 
 		/* Code */
 
-		ship->drawShip();
+		ship->drawObject();
 
 		ship->shoot(shootItr, allShots, ship->getPosition());
 

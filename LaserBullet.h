@@ -5,8 +5,13 @@ class LaserBullet : AbstractObject
 {
 public:
     LaserBullet(Vector2 ship_pos);
-    void drawBullet();
+
     void drawEnemyBullet();
-    Vector2 getPosition();
+
+    Vector2 AbstractObject::getPosition();
+
+    void AbstractObject::setPosition(Vector2 position);
+
+    void AbstractObject::drawObject();
 };
 
