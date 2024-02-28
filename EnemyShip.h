@@ -18,10 +18,6 @@ public:
 private:
 	float y;
 
-	float height;
-
-	float width;
-
 	bool draw;
 };
 

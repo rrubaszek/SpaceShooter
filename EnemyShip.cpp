@@ -7,11 +7,6 @@ EnemyShip::EnemyShip()
 {
 	velocity = 8.0f;
 	position = { 0.0f, 0.0f };
-
-	width = 0;
-	height = 0;
-	y = 0;
-	draw = false;
 }
 
 void EnemyShip::drawObject()
@@ -25,13 +20,10 @@ void EnemyShip::drawObject()
 
 void EnemyShip::setPosition(Vector2 screen)
 {
-	height = screen.y;
-	width = screen.x;
-
-	auto distributionY = std::uniform_real_distribution<float>(0, height);
+	auto distributionY = std::uniform_real_distribution<float>(0, screen.y);
 	y = distributionY(generator);
 
-	position = { width, y };
+	position = { screen.x, y };
 }
 
 Vector2 EnemyShip::getPosition()

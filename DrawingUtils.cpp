@@ -1,11 +1,12 @@
 #include "DrawingUtils.h"
+#include "Global.h"
 
 void DrawingUtils::drawAllLaserBullets(int& shootItr, std::vector<LaserBullet>& allShots)
 {
     for (int i = 0; i < shootItr; i++)
     {
         allShots.at(i).drawObject();
-        if (allShots.at(i).getPosition().x > 1400)
+        if (allShots.at(i).getPosition().x > width)
         {
             allShots.erase(allShots.begin() + i);
             shootItr--;

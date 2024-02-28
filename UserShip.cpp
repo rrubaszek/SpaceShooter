@@ -38,15 +38,13 @@ void UserShip::shoot(int& shootItr, std::vector<LaserBullet>& allShots, Vector2 
 {
     if (IsKeyPressed(KEY_SPACE) && shootItr < 4)
     {
-        LaserBullet *laser = new LaserBullet(shipPosition);
+        LaserBullet laser(shipPosition);
 
-        allShots.push_back(*laser);
+        allShots.push_back(laser);
 
         shootItr++;
 
         std::cout << shootItr << "\n";
-
-        delete(laser);
     }
 }
 

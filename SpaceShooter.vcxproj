@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="DrawingUtils.cpp" />
     <ClCompile Include="EnemyShip.cpp" />
     <ClCompile Include="LaserBullet.cpp" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractObject.h" />
+    <ClInclude Include="Collisions.h" />
     <ClInclude Include="DrawingUtils.h" />
     <ClInclude Include="EnemyShip.h" />
     <ClInclude Include="Global.h" />
