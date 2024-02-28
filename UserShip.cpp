@@ -14,11 +14,11 @@ void UserShip::drawObject()
 {
     if (IsKeyDown(KEY_S) && position.y < 583 - shipTexture.height)
     {
-        position.y += velocity;
+        position.y += velocity * 0.8;
     }
     if (IsKeyDown(KEY_W) && position.y > 0)
     {
-        position.y -= velocity;
+        position.y -= velocity * 0.8;
     }
     if (IsKeyDown(KEY_D) && position.x < 1400)
     {

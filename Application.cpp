@@ -4,6 +4,7 @@
 #include "UserShip.h"
 #include "Global.h"
 #include "DrawingUtils.h"
+#include "Collisions.h"
 
 /* Ship's velocity */
 float velocity = 10.0f;
@@ -53,6 +54,10 @@ int main()
 	laserTexture = LoadTextureFromImage(image_shoot);
 	UnloadImage(image_shoot);
 
+	Image image_enemy = LoadImage("C:/SpaceShooterProject/SpaceShooter/Graphics/enemy.png");
+	enemyTexture = LoadTextureFromImage(image_enemy);
+	UnloadImage(image_enemy);
+
 	Texture2D background = LoadTexture("C:/SpaceShooterProject/SpaceShooter/Graphics/MainBG_zloty.png");
 
 	for (int i = 0; i < 4; i++)
@@ -67,6 +72,8 @@ int main()
 	UserShip *ship = new UserShip(velocity, position);
 
 	DrawingUtils* drawing = new DrawingUtils();
+
+	Collisions* collisions = new Collisions();
 
 	/* Time when the game starts */
 	auto laserStartTime = std::chrono::high_resolution_clock::now();
@@ -120,6 +127,11 @@ int main()
 			laserStartTime = laserEndTime;
 		}
 
+		collisions->hitEnemy(screen, shootItr, allEnemies, allShots);
+
+		if (collisions->hitUserShip(*ship, allEnemies, allEnemyShots))
+			break;
+
 		drawing->drawAllEnemies(allEnemies, screen);
 
 		drawing->drawEnemyLaserBullets(allEnemyShots);
@@ -135,10 +147,12 @@ int main()
 
 	delete(ship);
 	delete(drawing);
+	delete(collisions);
 
 	UnloadTexture(shipTexture);
 	UnloadTexture(laserTexture);
 	UnloadTexture(background);
+	UnloadTexture(enemyTexture);
 
 	CloseWindow();
 

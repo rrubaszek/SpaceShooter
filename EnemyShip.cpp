@@ -2,6 +2,7 @@
 #include <random>
 
 auto generator = std::mt19937(std::random_device()());
+Texture2D enemyTexture;
 
 EnemyShip::EnemyShip()
 {
@@ -13,14 +14,14 @@ void EnemyShip::drawObject()
 {
 	position.x = position.x - velocity;
 
-	DrawCircleV(position, 20.0f, MAROON);
+	DrawTextureV(enemyTexture, position, WHITE);
 
 	DrawFPS(10, 10);
 }
 
 void EnemyShip::setPosition(Vector2 screen)
 {
-	auto distributionY = std::uniform_real_distribution<float>(0, screen.y);
+	auto distributionY = std::uniform_real_distribution<float>(0, screen.y - enemyTexture.height);
 	y = distributionY(generator);
 
 	position = { screen.x, y };

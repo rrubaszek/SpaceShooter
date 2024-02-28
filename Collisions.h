@@ -7,6 +7,6 @@ class Collisions
 {
 public:
 	void hitEnemy(Vector2 screen, int& shootItr, std::vector<EnemyShip>& allEnemies, std::vector<LaserBullet>& allShots);
-	void hitUserShip(UserShip& userShip, std::vector<EnemyShip>& allEnemies);
+	bool hitUserShip(UserShip& userShip, std::vector<EnemyShip>& allEnemies, std::vector<LaserBullet>& allEnemyBullets);
 };
 
